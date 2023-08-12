@@ -1,0 +1,30 @@
+{% extends "base.html" %}
+
+{% block content %}
+ 
+  {% if tasks %}
+  <h1 class="text-center p-5">Your Completed Tasks</h1>
+    <div class="p-5">
+      <table class="table table-hover">
+        <thead class="table-primary">
+          <tr>
+            <th scope="col">Title</th>
+            <th scope="col">Description</th>
+            <th scope="col">Status</th>
+          </tr>
+        </thead>
+        <tbody>
+          {% for task in tasks %}
+            <tr style="background-color: rgb(121, 182, 235); color: white;">
+              <td>{{ task.taskTitle }}</td>
+              <td>{{ task.taskDescription }}</td>
+              <td>Completed</td>
+            </tr>
+          {% endfor %}
+        </tbody>
+      </table>
+    </div>
+  {% else %}
+    <h1 class="text-center p-5">No tasks complete yet.</h1>
+  {% endif %}
+{% endblock content %}
